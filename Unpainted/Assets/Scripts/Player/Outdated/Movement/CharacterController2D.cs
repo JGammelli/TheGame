@@ -26,7 +26,6 @@ public class CharacterController2D : MonoBehaviour
     [Space()]
     [Header("Ground Check")]
     [SerializeField] private LayerMask m_WhatIsGround;
-    [SerializeField] private Transform m_GroundCheck;
 
     [Space()]
     [Header("Dash")]
@@ -66,21 +65,39 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
-        //Horizontal input 
-        m_HorizontalMovement = Input.GetAxisRaw("Horizontal") * m_MovementSpeed;
 
-        //Jump input 
+        HorizontalInput();
+        JumpInput();
+        HalfJumpInput();
+        DashInput();
+
+
+
+        //Movement ray
+        Debug.DrawRay(transform.position, new Vector2(m_HorizontalMovement * 10f, m_Rigidbody2D.velocity.y));
+    }
+
+
+    private void HorizontalInput()
+    {
+        m_HorizontalMovement = Input.GetAxisRaw("Horizontal") * m_MovementSpeed;
+    }
+    private void JumpInput()
+    {
         if (Input.GetButtonDown("Jump"))
         {
             m_InputBufferJumpTimer = m_InputBufferJump;
-            if (m_InputBufferJumpTimer >= 0)
-            {
-                m_Jump = true;
-                Debug.Log("Inputbuffer timer > 0");
-            } else m_Jump = false;
         }
 
-        //Half jumps
+        if (m_InputBufferJumpTimer >= 0)
+        {
+            m_Jump = true;
+        }
+        else m_Jump = false;
+    }
+
+    private void HalfJumpInput()
+    {
         if (Input.GetButtonUp("Jump") && m_HalfJumps)
         {
             if (m_Rigidbody2D.velocity.y > 2)
@@ -88,17 +105,14 @@ public class CharacterController2D : MonoBehaviour
                 m_SmallJump = true;
             }
         }
+    }
 
-        //Dash input
-        if (Input.GetButtonDown("Fire3") && m_DashCooldownTimer <= 0 && m_DashActive)
+    private void DashInput()
+    {
+        if (Input.GetButtonDown("left ctrl") && m_DashCooldownTimer <= 0 && m_DashActive)
         {
             m_Dash = true;
             m_DashCooldownTimer = m_DashCooldown;
-        }
-
-        if (m_Jump == true)
-        {
-            Debug.Log("Jump = true");
         }
     }
     private void FixedUpdate()
@@ -129,6 +143,7 @@ public class CharacterController2D : MonoBehaviour
             HandleFlip(move);
         }
     }
+
 
     private void Jump(bool jump)
     {
@@ -173,6 +188,7 @@ public class CharacterController2D : MonoBehaviour
             }
             else
             {
+
                 m_Rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 m_FlipDisabled = true;
                 m_DashTime -= Time.deltaTime;
