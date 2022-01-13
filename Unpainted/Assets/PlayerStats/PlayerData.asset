@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4bfecd546e3408429866a86cd061cfb, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  movementVelocity: 20
+  jumpVelocity: 60
+  doubleJumpVelocity: 45
+  shortJumpMulitplier: 0.5
+  hangTime: 0.13
+  gravityScale: 5
+  gravityScaleFallingMultiplier: 1.7
+  wallSlideVelocity: 4
+  dashCooldown: 0.5
+  dashTime: 0.2
+  dashDrag: 10
+  dashVelocity: 100
+  dashEndYMultiplier: 0.2
+  dodgeCooldown: 1
+  dodgeTime: 0.35
+  dodgeVelocity: 70
+  dodgeVelocityMultiplier: 0.95
+  dodgeDrag: 2
+  dodgeEndYMultiplier: 0.3
+  dodgeMaxHoldTime: 2
+  dodgeHoldTimeScale: 0.1
+  dodgeTimeScaleStartTimer: 0.1
+  damage: 5
+  attackCooldown: 0.2
+  attackDistanceFromPlayer: 4
+  attackCircleSize: 10
+  damageable:
+    serializedVersion: 2
+    m_Bits: 0
+  slashEffect: {fileID: 0}
