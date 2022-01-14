@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerAbilityState
 {
+    public bool dodgeAfter;
     public float lastAttackTime;
 
     public float attackDistance;
@@ -23,7 +24,7 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.Enter();
         player.InputHandler.UseAttackInput();
-        attackDirectionInput = player.InputHandler.RawAttackDirectionInput;
+        attackDirectionInput = player.InputHandler.AttackDirectionInput;
         attackDirection = Vector2.right * player.facingDirection;
 
         if (attackDirectionInput != Vector2.zero)
@@ -35,24 +36,13 @@ public class PlayerAttackState : PlayerAbilityState
         
         Vector2 attackPoint = player.transform.position;
 
-        /*
-        Collider2D[] targets = Physics2D.OverlapCircleAll(attackPoint, playerData.attackCircleSize, playerData.damageable);
+        float angle = Vector2.SignedAngle(Vector2.right, attackDirection);
+        particleHandler.PlayEffect(particleHandler.slashEffect, attackPoint, new Vector3(0f, 0f, angle));
+        Debug.Log("Attack towards " + attackDirection);
 
-        Debug.Log(attackDirectionInput);
-+
-        for (int i = 0; i < targets.Length; i++)
-        {
-            Debug.Log(targets[i]);
-        }*/
-
-
-        particleHandler.PlayEffect(particleHandler.slashEffect, attackPoint);
-        Debug.Log("attack");
-        Debug.Log(particleHandler.slashEffect.transform.position);
-        Debug.Log(player.transform.position);
-
-        isAbilityDone = true;
         lastAttackTime = Time.time;
+
+
     }
 
     public override void Exit()
@@ -64,7 +54,12 @@ public class PlayerAttackState : PlayerAbilityState
     public override void LogicUppdate()
     {
         base.LogicUppdate();
-
+        if (dodgeAfter)
+        {
+            dodgeAfter = false;
+            stateMachine.ChangeState(player.DodgeState);
+        }
+        else isAbilityDone = true;
     }
 
     public override void PhysicsUppdate()

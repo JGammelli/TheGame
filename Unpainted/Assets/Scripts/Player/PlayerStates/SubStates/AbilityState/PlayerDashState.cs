@@ -26,11 +26,13 @@ public class PlayerDashState : PlayerAbilityState
         dashDirection = Vector2.right * player.facingDirection;
         m_StartTime = Time.time;
         attackAtEnd = false;
+        particleHandler.PlayEffect(particleHandler.dashOnGroundEffect, particleHandler.dashOnGroundEffect.transform.position, particleHandler.dashOnGroundEffect.transform.rotation.eulerAngles);
     }
 
     public override void Exit()
     {
         base.Exit();
+        particleHandler.StopEffect(particleHandler.dashOnGroundEffect);
     }
 
     public override void LogicUppdate()
@@ -44,6 +46,7 @@ public class PlayerDashState : PlayerAbilityState
         {
             player.rb.drag = playerData.dashDrag;
             player.SetVelocity(playerData.dashVelocity, dashDirection);
+            
         }
 
         if (attackInput)
@@ -55,25 +58,17 @@ public class PlayerDashState : PlayerAbilityState
         {
             lastDashTime = Time.time;
             player.rb.drag = 0f;
-
-            if (attackAtEnd)
-            {
-                stateMachine.ChangeState(player.AttackDodgeState);
-                Debug.Log("AttackDodgeState");
-            }
-            else stateMachine.ChangeState(player.DodgeState);
+            stateMachine.ChangeState(player.HoldDodgeState);
         }
         else if (Time.time >= m_StartTime + playerData.dashTime)
         {
             player.rb.drag = 0f;
-            isAbilityDone = true;
             lastDashTime = Time.time;
             if (attackAtEnd)
             {
                 stateMachine.ChangeState(player.AttackState);
-                Debug.Log("Dash with attack at end");
             }
-            // if Attackinput pressed during dash and dash cancled by dodge, attack before dodging
+            else isAbilityDone = true;
         }
     }
 

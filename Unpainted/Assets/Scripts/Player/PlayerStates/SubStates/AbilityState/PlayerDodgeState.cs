@@ -8,11 +8,10 @@ public class PlayerDodgeState : PlayerAbilityState
     public bool CanDodge { get; set; }
 
     public float lastDodgeTime;
-    public bool isHolding;
-    public bool dodgeInputStop;
 
     private Vector2 dodgeDirection;
     private Vector2 dodgeDirectionInput;
+
     public PlayerDodgeState(Player player, PlayerStateMachine playerStateMachine, PlayerData playerData, PlayerParticleHandler particleHandler, string m_AnimatorBoolName) : base(player, playerStateMachine, playerData, particleHandler, m_AnimatorBoolName)
     {
     }
@@ -21,11 +20,11 @@ public class PlayerDodgeState : PlayerAbilityState
     public override void Enter()
     {
         base.Enter();
-        CanDodge = false;
-        player.InputHandler.UseDodgeInput();
-        isHolding = true;
-        dodgeDirection = Vector2.right * -player.facingDirection;
-        m_StartTime = Time.unscaledTime;
+        dodgeDirection = player.HoldDodgeState.dodgeDirection;
+
+        m_StartTime = Time.time;
+        player.rb.drag = playerData.dodgeDrag;
+        player.SetVelocity(playerData.dodgeVelocity, dodgeDirection);
     }
 
     public override void Exit()
@@ -44,44 +43,11 @@ public class PlayerDodgeState : PlayerAbilityState
 
         if (!isExitingState)
         {
-            if (isHolding)
+            if (Time.time >= m_StartTime + playerData.dodgeTime)
             {
-                dodgeDirectionInput = player.InputHandler.RawDodgeDirectionInput;
-                dodgeInputStop = player.InputHandler.DodgeInputStop;
-
-                if (Time.unscaledTime >= m_StartTime + playerData.dodgeTimeScaleStartTimer)
-                {
-                    Time.timeScale = playerData.dodgeHoldTimeScale;
-                    player.DodgeDirectionIndicator.gameObject.SetActive(true);
-                }
-
-                if (dodgeDirectionInput != Vector2.zero)
-                {
-                    dodgeDirection = dodgeDirectionInput;
-                    dodgeDirection.Normalize();
-                }
-
-                float angle = Vector2.SignedAngle(Vector2.right, dodgeDirection);
-                player.DodgeDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, angle - 180);
-
-                if (dodgeInputStop || Time.unscaledTime >= m_StartTime + playerData.dodgeMaxHoldTime)
-                {
-                    isHolding = false;
-                    Time.timeScale = 1;
-                    m_StartTime = Time.time;
-                    player.rb.drag = playerData.dodgeDrag;
-                    player.SetVelocity(playerData.dodgeVelocity, dodgeDirection);
-                    player.DodgeDirectionIndicator.gameObject.SetActive(false);
-                }
-            }
-            else
-            {
-                if (Time.time >= m_StartTime + playerData.dodgeTime)
-                {
-                    player.rb.drag = 0f;
-                    isAbilityDone = true;
-                    lastDodgeTime = Time.time;
-                }
+                player.rb.drag = 0f;
+                isAbilityDone = true;
+                lastDodgeTime = Time.time;
             }
         }
     }
@@ -95,5 +61,10 @@ public class PlayerDodgeState : PlayerAbilityState
     public void ResetCanDodge()
     {
         CanDodge = true;
+    }
+
+    private void StartDodgeMovement()
+    {
+
     }
 }
