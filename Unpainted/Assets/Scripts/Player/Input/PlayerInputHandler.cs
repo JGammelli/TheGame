@@ -24,7 +24,9 @@ public class PlayerInputHandler : MonoBehaviour
     public bool DodgeInputStop { get; private set; }
     public bool AttackInput { get; private set; }
     public Vector2 RawDodgeDirectionInput { get; private set; }
+    public Vector2Int DodgeDirectionInput { get; private set; }
     public Vector2 RawAttackDirectionInput { get; private set; }
+    public Vector2Int AttackDirectionInput { get; private set; }
     public Vector2 MousePositionInput { get; private set; }
 
     #endregion
@@ -131,6 +133,9 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void UseDodgeInput() => DodgeInput = false;
 
+    #endregion
+
+    #region MouseDirectionInputs
     public void OnMouseDirectionInput(InputAction.CallbackContext context)
     {
         RawDodgeDirectionInput = -context.ReadValue<Vector2>();
@@ -143,6 +148,9 @@ public class PlayerInputHandler : MonoBehaviour
             RawDodgeDirectionInput = -((Vector3)MousePositionInput - transform.position);
             RawAttackDirectionInput = (Vector3)MousePositionInput - transform.position;
         }
+
+        DodgeDirectionInput = Vector2Int.RoundToInt(RawDodgeDirectionInput.normalized);
+        AttackDirectionInput = Vector2Int.RoundToInt(RawAttackDirectionInput.normalized);
     }
 
     #endregion

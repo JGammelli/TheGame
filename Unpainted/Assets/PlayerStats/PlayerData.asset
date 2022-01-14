@@ -19,13 +19,13 @@ MonoBehaviour:
   hangTime: 0.13
   gravityScale: 5
   gravityScaleFallingMultiplier: 1.7
-  wallSlideVelocity: 4
-  dashCooldown: 0.5
+  wallSlideVelocity: 8
+  dashCooldown: 0.6
   dashTime: 0.2
-  dashDrag: 10
+  dashDrag: 15
   dashVelocity: 100
   dashEndYMultiplier: 0.2
-  dodgeCooldown: 1
+  dodgeCooldown: 0.5
   dodgeTime: 0.35
   dodgeVelocity: 70
   dodgeVelocityMultiplier: 0.95

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public PlayerStateMachine StateMachine { get; private set; }
     [SerializeField] 
     private PlayerData playerData;
-    public PlayerParticleHandler ParticleHandler { get; private set; }
+
 
 
 //States
@@ -21,9 +21,9 @@ public PlayerIdleState IdleState { get; private set; }
     public PlayerLandState LandState { get; private set; }
     public PlayerWallSlideState WallSlideState { get; private set; }
     public PlayerDashState DashState { get; private set; }
+    public PlayerHoldDodgeState HoldDodgeState { get; private set; }
     public PlayerDodgeState DodgeState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }
-    public PlayerAttackDodgeState AttackDodgeState { get; private set; }
 
 
     #endregion
@@ -35,6 +35,7 @@ public PlayerIdleState IdleState { get; private set; }
     public Collider2D collider2d;
     public PlayerInputHandler InputHandler { get; private set; }
     public Transform DodgeDirectionIndicator { get; private set; }
+    public PlayerParticleHandler ParticleHandler { get; private set; }
 
     #endregion
 
@@ -71,9 +72,9 @@ public PlayerIdleState IdleState { get; private set; }
         LandState = new PlayerLandState(this, StateMachine, playerData, ParticleHandler, "land");
         WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, ParticleHandler, "wallSlide");
         DashState = new PlayerDashState(this, StateMachine, playerData, ParticleHandler, "dash");
-        DodgeState = new PlayerDodgeState(this, StateMachine, playerData, ParticleHandler, "dodge");
+        HoldDodgeState = new PlayerHoldDodgeState(this, StateMachine, playerData, ParticleHandler, "holdDodge");
+        DodgeState = new PlayerDodgeState(this, StateMachine, playerData, ParticleHandler, "inAir");
         AttackState = new PlayerAttackState(this, StateMachine, playerData, ParticleHandler, "attack");
-        AttackDodgeState = new PlayerAttackDodgeState(this, StateMachine, playerData, ParticleHandler, "attackDodge");
 
 
     }

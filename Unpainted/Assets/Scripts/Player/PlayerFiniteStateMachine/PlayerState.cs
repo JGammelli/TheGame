@@ -37,6 +37,7 @@ public class PlayerState
     public virtual void Exit()
     {
         isExitingState = true;
+        player.Animator.SetBool(animatorBoolString, false);
     }
 
 

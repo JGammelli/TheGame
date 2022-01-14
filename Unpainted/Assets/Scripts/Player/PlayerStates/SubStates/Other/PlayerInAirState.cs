@@ -71,7 +71,7 @@ public class PlayerInAirState : PlayerState
         }
         else if (dodgeInput && player.DodgeState.CheckIfCanDodge())
         {
-            stateMachine.ChangeState(player.DodgeState);
+            stateMachine.ChangeState(player.HoldDodgeState);
         }
         else if (attackInput && player.AttackState.CheckIfCanAttack())
         {

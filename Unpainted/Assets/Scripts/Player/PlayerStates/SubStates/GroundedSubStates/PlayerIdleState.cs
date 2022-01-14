@@ -34,11 +34,6 @@ public class PlayerIdleState : PlayerGroundedState
         {
             stateMachine.ChangeState(player.MoveState);
         }
-
-        if (!isGrounded)
-        {
-
-        }
     }
 
     public override void PhysicsUppdate()
