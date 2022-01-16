@@ -108,6 +108,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             DashInput = true;
+            dashInputTimer = Time.time;
         }
     }
 
@@ -165,6 +166,10 @@ public class PlayerInputHandler : MonoBehaviour
         if (Time.time >= dodgeInputTimer + inputBufferTime)
         {
             DodgeInput = false;
+        }
+        if (Time.time >= dashInputTimer + inputBufferTime)
+        {
+            DashInput = false;
         }
     }
 

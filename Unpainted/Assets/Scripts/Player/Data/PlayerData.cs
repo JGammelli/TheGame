@@ -32,11 +32,13 @@ public class PlayerData : ScriptableObject
     [Header("Dodge State")]
     public float dodgeCooldown = 1f;
     public float dodgeTime = 0.3f;
+    public float dodgeMoveTime = 0.1f;
     public float dodgeVelocity = 70;
     public float dodgeVelocityMultiplier = 0.95f;
     public float dodgeDrag = 10;
     public float dodgeEndYMultiplier = 0.3f;
     public float dodgeMaxHoldTime = 2;
+    public float DodgeMovementSmoothing = 15f;
 
     public float dodgeHoldTimeScale = 0.5f;
     public float dodgeTimeScaleStartTimer = 0.1f;
@@ -48,7 +50,6 @@ public class PlayerData : ScriptableObject
     public float attackDistanceFromPlayer = 4;
     public float attackCircleSize = 10;
     public LayerMask damageable;
-    public GameObject slashEffect;
 
 
 }

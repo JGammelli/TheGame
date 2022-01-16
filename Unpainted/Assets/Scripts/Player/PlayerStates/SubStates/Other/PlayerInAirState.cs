@@ -81,6 +81,9 @@ public class PlayerInAirState : PlayerState
         {
             player.CheckIfShouldFlip(xInput);
             player.SetVelocityX(playerData.movementVelocity * xInput);
+
+            player.Animator.SetFloat("yVelocity", player.CurrentVelocity.y);
+
             if (player.CurrentVelocity.y < -2)
             {
                 player.rb.gravityScale *= playerData.gravityScaleFallingMultiplier;

@@ -12,33 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4bfecd546e3408429866a86cd061cfb, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  movementVelocity: 20
-  jumpVelocity: 60
-  doubleJumpVelocity: 45
+  movementVelocity: 25
+  jumpVelocity: 55
+  doubleJumpVelocity: 35
   shortJumpMulitplier: 0.5
   hangTime: 0.13
-  gravityScale: 5
-  gravityScaleFallingMultiplier: 1.7
+  gravityScale: 4
+  gravityScaleFallingMultiplier: 1.8
   wallSlideVelocity: 8
   dashCooldown: 0.6
-  dashTime: 0.2
-  dashDrag: 15
+  dashTime: 0.25
+  dashDrag: 20
   dashVelocity: 100
   dashEndYMultiplier: 0.2
   dodgeCooldown: 0.5
   dodgeTime: 0.35
+  dodgeMoveTime: 0.2
   dodgeVelocity: 70
   dodgeVelocityMultiplier: 0.95
   dodgeDrag: 2
   dodgeEndYMultiplier: 0.3
   dodgeMaxHoldTime: 2
+  DodgeMovementSmoothing: 15
   dodgeHoldTimeScale: 0.1
   dodgeTimeScaleStartTimer: 0.1
   damage: 5
-  attackCooldown: 0.2
+  attackCooldown: 0.5
   attackDistanceFromPlayer: 4
   attackCircleSize: 10
   damageable:
     serializedVersion: 2
     m_Bits: 0
-  slashEffect: {fileID: 0}
