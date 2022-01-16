@@ -14,8 +14,6 @@ public class PlayerLandState : PlayerGroundedState
 
         base.LogicUppdate();
 
-        AnimationFinishedTrigger();
-
         //Fixa när animationer för LandState är färdiga https://www.youtube.com/watch?v=dOiOp3DLxZQ&t=2290s
 
         if (!isExitingState)

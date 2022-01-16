@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerState
 {
+    protected Core core;
     protected Player player;
     protected PlayerStateMachine stateMachine;
     protected PlayerData playerData;
@@ -23,6 +24,7 @@ public class PlayerState
         this.playerData = playerData;
         this.particleHandler = particleHandler;
         this.animatorBoolString = m_AnimatorBoolName;
+        core = player.Core;
     }
 
     public virtual void Enter()

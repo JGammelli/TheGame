@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttackState : PlayerAbilityState
 {
     public bool dodgeAfter;
+    private bool dodgeInput;
     public float lastAttackTime;
 
     public float attackDistance;
@@ -25,7 +26,7 @@ public class PlayerAttackState : PlayerAbilityState
         base.Enter();
         player.InputHandler.UseAttackInput();
         attackDirectionInput = player.InputHandler.AttackDirectionInput;
-        attackDirection = Vector2.right * player.facingDirection;
+        attackDirection = Vector2.right * core.Movement.FacingDirection;
 
         if (attackDirectionInput != Vector2.zero)
         {
@@ -37,11 +38,7 @@ public class PlayerAttackState : PlayerAbilityState
         Debug.Log(attackDirection.y);
 
 
-        player.CheckIfShouldFlipMousePos(attackDirection);
-        Vector2 attackPoint = player.transform.position;
-
-        float angle = Vector2.SignedAngle(Vector2.right, attackDirection);
-        particleHandler.PlayEffect(particleHandler.slashEffect, attackPoint, new Vector3(0f, 0f, angle));
+        core.Movement.CheckIfShouldFlipMousePos(attackDirection);
 
         lastAttackTime = Time.time;
 
@@ -57,12 +54,20 @@ public class PlayerAttackState : PlayerAbilityState
     public override void LogicUppdate()
     {
         base.LogicUppdate();
+        dodgeInput = player.InputHandler.DodgeInput;
+
         if (dodgeAfter)
         {
             dodgeAfter = false;
             stateMachine.ChangeState(player.DodgeState);
+        } else if (dodgeInput)
+        {
+            stateMachine.ChangeState(player.HoldDodgeState);
         }
-        else isAbilityDone = true;
+        else if (isAnimationFinished)
+        {
+            isAbilityDone = true;
+        }
     }
 
     public override void PhysicsUppdate()

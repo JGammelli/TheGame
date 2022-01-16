@@ -61,7 +61,7 @@ public class PlayerInAirState : PlayerState
             player.InputHandler.UseJumpInput();
             stateMachine.ChangeState(player.DoubleJumpState);
         }
-        else if (isTouchingWall && xInput == player.facingDirection && player.CurrentVelocity.y < -10)
+        else if (isTouchingWall && xInput == core.Movement.FacingDirection && core.Movement.CurrentVelocity.y < -10)
         {
             stateMachine.ChangeState(player.WallSlideState);
         }
@@ -79,12 +79,12 @@ public class PlayerInAirState : PlayerState
         }
         else
         {
-            player.CheckIfShouldFlip(xInput);
-            player.SetVelocityX(playerData.movementVelocity * xInput);
+            core.Movement.CheckIfShouldFlip(xInput);
+            core.Movement.SetVelocityX(playerData.movementVelocity * xInput);
 
-            player.Animator.SetFloat("yVelocity", player.CurrentVelocity.y);
+            player.Animator.SetFloat("yVelocity", core.Movement.CurrentVelocity.y);
 
-            if (player.CurrentVelocity.y < -2)
+            if (core.Movement.CurrentVelocity.y < -2)
             {
                 player.rb.gravityScale *= playerData.gravityScaleFallingMultiplier;
             }
@@ -101,8 +101,8 @@ public class PlayerInAirState : PlayerState
     {
         base.DoChecks();
 
-        isGrounded = player.CheckIfGrounded();
-        isTouchingWall = player.CheckIfTouchingWall();
+        isGrounded = core.CollisionSenses.CheckIfGrounded();
+        isTouchingWall = core.CollisionSenses.CheckIfTouchingWall();
 
     }
 
@@ -131,11 +131,11 @@ public class PlayerInAirState : PlayerState
         {
             if (jumpInputStop)
             {
-                player.SetVelocityY(player.CurrentVelocity.y * playerData.shortJumpMulitplier);
+                core.Movement.SetVelocityY(core.Movement.CurrentVelocity.y * playerData.shortJumpMulitplier);
                 isJumping = false;
             }
             
-            if (player.CurrentVelocity.y <= 0f)
+            if (core.Movement.CurrentVelocity.y <= 0f)
             {
                 isJumping = false;
                 isDoubleJumping = false;

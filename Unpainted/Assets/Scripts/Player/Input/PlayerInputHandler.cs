@@ -39,6 +39,7 @@ public class PlayerInputHandler : MonoBehaviour
     private float jumpInputTimer;
     private float dodgeInputTimer;
     private float dashInputTimer;
+    private float attackInputTimer;
 
 
     #endregion
@@ -94,6 +95,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             AttackInput = true;
+            attackInputTimer = Time.time;
         }
     }
 
@@ -170,6 +172,10 @@ public class PlayerInputHandler : MonoBehaviour
         if (Time.time >= dashInputTimer + inputBufferTime)
         {
             DashInput = false;
+        }
+        if (Time.time >= attackInputTimer + inputBufferTime)
+        {
+            AttackInput = false;
         }
     }
 

@@ -5,10 +5,31 @@ using UnityEngine;
 public class Movement : CoreComponent
 {
     public Rigidbody2D rb { get; private set; }
+    public int FacingDirection { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
 
     private Vector2 workspace;
 
+
+    #region Unity Callback Functions
+    protected override void Awake()
+    {
+        base.Awake();
+
+        rb = GetComponentInParent<Rigidbody2D>();
+
+        FacingDirection = 1;
+    }
+
+    #endregion
+
+    #region Uppdates
+    public void LogicUppdate()
+    {
+        CurrentVelocity = rb.velocity;
+    }
+
+    #endregion
 
     #region Set Functions
     public void SetVelocityX(float velocity)
@@ -49,6 +70,31 @@ public class Movement : CoreComponent
         workspace.Set(angle.x * velocity * direction, angle.y * velocity);
         rb.velocity = workspace;
         CurrentVelocity = workspace;
+    }
+
+    #endregion
+
+    #region Flips
+    private void Flip()
+    {
+        FacingDirection *= -1;
+        rb.transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+
+    public void CheckIfShouldFlip(int xInput)
+    {
+        if (xInput != 0 && xInput != FacingDirection)
+        {
+            Flip();
+        }
+    }
+
+    public void CheckIfShouldFlipMousePos(Vector2 mousePos)
+    {
+        if (mousePos.x != 0 && Mathf.Round(mousePos.x) != FacingDirection)
+        {
+            Flip();
+        }
     }
 
     #endregion

@@ -11,7 +11,7 @@ public class PlayerWallSlideState : PlayerTouchingWallState
     public override void LogicUppdate()
     {
         base.LogicUppdate();
-        player.SetVelocityY(-playerData.wallSlideVelocity);
+        core.Movement.SetVelocityY(-playerData.wallSlideVelocity);
 
 
         if (jumpInput && player.DoubleJumpState.canDoubleJump)

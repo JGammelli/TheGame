@@ -14,7 +14,7 @@ public class PlayerDoubleJumpState : PlayerAbilityState
         base.Enter();
 
 
-        player.SetVelocityY(playerData.doubleJumpVelocity);
+        core.Movement.SetVelocityY(playerData.doubleJumpVelocity);
         player.InAirState.SetIsDoubleJumping();
         canDoubleJump = false;
         DoChecks();
