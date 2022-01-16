@@ -33,12 +33,15 @@ public class PlayerAttackState : PlayerAbilityState
             attackDirection.Normalize();
         }
 
-        
+        player.Animator.SetFloat("mousePositionY", attackDirection.y);
+        Debug.Log(attackDirection.y);
+
+
+        player.CheckIfShouldFlipMousePos(attackDirection);
         Vector2 attackPoint = player.transform.position;
 
         float angle = Vector2.SignedAngle(Vector2.right, attackDirection);
         particleHandler.PlayEffect(particleHandler.slashEffect, attackPoint, new Vector3(0f, 0f, angle));
-        Debug.Log("Attack towards " + attackDirection);
 
         lastAttackTime = Time.time;
 

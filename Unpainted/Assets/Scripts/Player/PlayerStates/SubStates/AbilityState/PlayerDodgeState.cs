@@ -9,6 +9,7 @@ public class PlayerDodgeState : PlayerAbilityState
 
     public float lastDodgeTime;
 
+    private int xInput;
     private Vector2 dodgeDirection;
     private Vector2 dodgeDirectionInput;
 
@@ -30,24 +31,36 @@ public class PlayerDodgeState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
+        CanDodge = false;
+
+
 
         if (player.CurrentVelocity.y > 0)
         {
             player.SetVelocityY(player.CurrentVelocity.y * playerData.dodgeEndYMultiplier);
+            Debug.Log("dodge end multiplier");
         }
     }
 
     public override void LogicUppdate()
     {
         base.LogicUppdate();
+        xInput = xInput = player.InputHandler.NormalizedInputX;
 
         if (!isExitingState)
         {
-            if (Time.time >= m_StartTime + playerData.dodgeTime)
+            if (Time.time >= m_StartTime + playerData.dodgeTime + playerData.dodgeMoveTime)
             {
-                player.rb.drag = 0f;
+                player.rb.drag = 0;
+                Debug.Log(player.CurrentVelocity.y);
+                Debug.Log(player.rb.velocity.y);
                 isAbilityDone = true;
                 lastDodgeTime = Time.time;
+            }
+            else if (Time.time >= m_StartTime + playerData.dodgeTime)
+            {
+
+                player.SetVelocitySmooth(playerData.DodgeMovementSmoothing * xInput, (player.CurrentVelocity.y * 0.2f));
             }
         }
     }

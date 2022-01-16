@@ -22,6 +22,7 @@ public class PlayerDashState : PlayerAbilityState
     {
         base.Enter();
         CanDash = false;
+        player.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         player.InputHandler.UseDashInput();
         dashDirection = Vector2.right * player.facingDirection;
         m_StartTime = Time.time;
@@ -56,14 +57,12 @@ public class PlayerDashState : PlayerAbilityState
 
         if (dodgeInput && player.DodgeState.CheckIfCanDodge())
         {
-            lastDashTime = Time.time;
-            player.rb.drag = 0f;
+            EndDashResets();
             stateMachine.ChangeState(player.HoldDodgeState);
         }
         else if (Time.time >= m_StartTime + playerData.dashTime)
         {
-            player.rb.drag = 0f;
-            lastDashTime = Time.time;
+            EndDashResets();
             if (attackAtEnd)
             {
                 stateMachine.ChangeState(player.AttackState);
@@ -81,6 +80,13 @@ public class PlayerDashState : PlayerAbilityState
     public void ResetCanDash()
     {
         CanDash = true;
+    }
+
+    private void EndDashResets()
+    {
+        player.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        lastDashTime = Time.time;
+        player.rb.drag = 0f;
     }
 
 }

@@ -9,11 +9,12 @@ public class Player : MonoBehaviour
     public PlayerStateMachine StateMachine { get; private set; }
     [SerializeField] 
     private PlayerData playerData;
+  
 
 
 
 //States
-public PlayerIdleState IdleState { get; private set; }
+    public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
     public PlayerJumpState JumpState { get; private set; }
     public PlayerDoubleJumpState DoubleJumpState { get; private set; }
@@ -113,6 +114,17 @@ public PlayerIdleState IdleState { get; private set; }
         CurrentVelocity = workspace;
     }
 
+    public void SetVelocitySmooth(float forceX, float forceY)
+    {
+        workspace = new Vector2(forceX, forceY);
+        rb.AddForce(workspace);
+        if (rb.velocity.x >= playerData.movementVelocity)
+        {
+            rb.velocity = new Vector2(playerData.movementVelocity, rb.velocity.y);
+        }
+        CurrentVelocity = rb.velocity;
+    }
+
     public void SetVelocityY(float velocity)
     {
         workspace.Set(CurrentVelocity.x, velocity);
@@ -141,6 +153,14 @@ public PlayerIdleState IdleState { get; private set; }
     public void CheckIfShouldFlip(int xInput)
     {
         if (xInput != 0 && xInput != facingDirection)
+        {
+            Flip();
+        }
+    }
+
+    public void CheckIfShouldFlipMousePos(Vector2 mousePos)
+    {
+        if (mousePos.x != 0 && Mathf.Round(mousePos.x) != facingDirection)
         {
             Flip();
         }

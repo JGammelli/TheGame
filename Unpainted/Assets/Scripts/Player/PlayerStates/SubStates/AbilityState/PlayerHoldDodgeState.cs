@@ -52,6 +52,7 @@ public class PlayerHoldDodgeState : PlayerAbilityState
                 dodgeDirection.Normalize();
             }
 
+            player.CheckIfShouldFlipMousePos(-dodgeDirection);
             float angle = Vector2.SignedAngle(Vector2.right, dodgeDirection);
             player.DodgeDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, angle - 180);
 
