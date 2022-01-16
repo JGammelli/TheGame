@@ -22,7 +22,7 @@ public class PlayerHoldDodgeState : PlayerAbilityState
     {
         base.Enter();
         player.InputHandler.UseDodgeInput();
-        dodgeDirection = Vector2.right * -player.facingDirection;
+        dodgeDirection = Vector2.right * -core.Movement.FacingDirection;
         m_StartTime = Time.unscaledTime;
     }
 
@@ -52,7 +52,7 @@ public class PlayerHoldDodgeState : PlayerAbilityState
                 dodgeDirection.Normalize();
             }
 
-            player.CheckIfShouldFlipMousePos(-dodgeDirection);
+            core.Movement.CheckIfShouldFlipMousePos(-dodgeDirection);
             float angle = Vector2.SignedAngle(Vector2.right, dodgeDirection);
             player.DodgeDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, angle - 180);
 

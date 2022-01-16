@@ -24,7 +24,7 @@ public class PlayerDashState : PlayerAbilityState
         CanDash = false;
         player.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         player.InputHandler.UseDashInput();
-        dashDirection = Vector2.right * player.facingDirection;
+        dashDirection = Vector2.right * core.Movement.FacingDirection;
         m_StartTime = Time.time;
         attackAtEnd = false;
         particleHandler.PlayEffect(particleHandler.dashOnGroundEffect, particleHandler.dashOnGroundEffect.transform.position, particleHandler.dashOnGroundEffect.transform.rotation.eulerAngles);
@@ -46,7 +46,7 @@ public class PlayerDashState : PlayerAbilityState
         if (!isExitingState)
         {
             player.rb.drag = playerData.dashDrag;
-            player.SetVelocity(playerData.dashVelocity, dashDirection);
+            core.Movement.SetVelocity(playerData.dashVelocity, dashDirection);
             
         }
 
@@ -87,6 +87,7 @@ public class PlayerDashState : PlayerAbilityState
         player.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         lastDashTime = Time.time;
         player.rb.drag = 0f;
+        core.Movement.SetVelocityX(core.Movement.CurrentVelocity.x * 0.2f);
     }
 
 }

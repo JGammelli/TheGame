@@ -25,7 +25,7 @@ public class PlayerDodgeState : PlayerAbilityState
 
         m_StartTime = Time.time;
         player.rb.drag = playerData.dodgeDrag;
-        player.SetVelocity(playerData.dodgeVelocity, dodgeDirection);
+        core.Movement.SetVelocity(playerData.dodgeVelocity, dodgeDirection);
     }
 
     public override void Exit()
@@ -35,9 +35,9 @@ public class PlayerDodgeState : PlayerAbilityState
 
 
 
-        if (player.CurrentVelocity.y > 0)
+        if (core.Movement.CurrentVelocity.y > 0)
         {
-            player.SetVelocityY(player.CurrentVelocity.y * playerData.dodgeEndYMultiplier);
+            core.Movement.SetVelocityY(core.Movement.CurrentVelocity.y * playerData.dodgeEndYMultiplier);
             Debug.Log("dodge end multiplier");
         }
     }
@@ -52,15 +52,13 @@ public class PlayerDodgeState : PlayerAbilityState
             if (Time.time >= m_StartTime + playerData.dodgeTime + playerData.dodgeMoveTime)
             {
                 player.rb.drag = 0;
-                Debug.Log(player.CurrentVelocity.y);
-                Debug.Log(player.rb.velocity.y);
                 isAbilityDone = true;
                 lastDodgeTime = Time.time;
             }
             else if (Time.time >= m_StartTime + playerData.dodgeTime)
             {
 
-                player.SetVelocitySmooth(playerData.DodgeMovementSmoothing * xInput, (player.CurrentVelocity.y * 0.2f));
+                core.Movement.SetVelocitySmooth(playerData.DodgeMovementSmoothing * xInput, (core.Movement.CurrentVelocity.y * 0.2f));
             }
         }
     }

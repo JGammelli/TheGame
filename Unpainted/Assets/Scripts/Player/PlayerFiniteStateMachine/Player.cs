@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
     #region Components
     //Player Components
+    public Core Core { get; private set; }
     public Animator Animator { get; private set; }
     public Rigidbody2D rb;
     public Collider2D collider2d;
@@ -42,16 +43,12 @@ public class Player : MonoBehaviour
 
     #region Check Variables
 
-    [SerializeField] private LayerMask whatIsGround;
-    private bool isGrounded;
+
 
 
     #endregion
 
     #region Other Variables 
-    //Publics
-    public Vector2 CurrentVelocity { get; private set; }
-    public int facingDirection { get; private set; }
 
     //Privates
     private Vector2 workspace;
@@ -62,6 +59,9 @@ public class Player : MonoBehaviour
     #region Unity Callback Functions
     private void Awake()
     {
+        Core = GetComponentInChildren<Core>();
+
+
         StateMachine = new PlayerStateMachine();
         ParticleHandler = GetComponent<PlayerParticleHandler>();
 
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         LandState = new PlayerLandState(this, StateMachine, playerData, ParticleHandler, "land");
         WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, ParticleHandler, "wallSlide");
         DashState = new PlayerDashState(this, StateMachine, playerData, ParticleHandler, "dash");
-        HoldDodgeState = new PlayerHoldDodgeState(this, StateMachine, playerData, ParticleHandler, "holdDodge");
+        HoldDodgeState = new PlayerHoldDodgeState(this, StateMachine, playerData, ParticleHandler, "dodge");
         DodgeState = new PlayerDodgeState(this, StateMachine, playerData, ParticleHandler, "inAir");
         AttackState = new PlayerAttackState(this, StateMachine, playerData, ParticleHandler, "attack");
 
@@ -88,14 +88,12 @@ public class Player : MonoBehaviour
         collider2d = GetComponent<Collider2D>();
         DodgeDirectionIndicator = transform.Find("DodgeDirectionIndicator");
 
-        facingDirection = 1;
-
         StateMachine.Initialize(IdleState);
     }
 
     private void Update()
     {
-        CurrentVelocity = rb.velocity;
+        Core.LogicUppdate();
         StateMachine.CurrentState.LogicUppdate();
     }
 
@@ -106,95 +104,14 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    #region Set Functions
-    public void SetVelocityX(float velocity)
-    {
-        workspace.Set(velocity, CurrentVelocity.y);
-        rb.velocity = workspace;
-        CurrentVelocity = workspace;
-    }
 
-    public void SetVelocitySmooth(float forceX, float forceY)
-    {
-        workspace = new Vector2(forceX, forceY);
-        rb.AddForce(workspace);
-        if (rb.velocity.x >= playerData.movementVelocity)
-        {
-            rb.velocity = new Vector2(playerData.movementVelocity, rb.velocity.y);
-        }
-        CurrentVelocity = rb.velocity;
-    }
 
-    public void SetVelocityY(float velocity)
-    {
-        workspace.Set(CurrentVelocity.x, velocity);
-        rb.velocity = workspace;
-        CurrentVelocity = workspace;
-    }
-
-    public void SetVelocity(float velocity, Vector2 direction)
-    {
-        workspace = direction * velocity;
-        rb.velocity = workspace;
-        CurrentVelocity = workspace;
-    }
-
-    public void SetVelocity(float velocity, Vector2 angle, int direction)
-    {
-        angle.Normalize();
-        workspace.Set(angle.x * velocity * direction, angle.y * velocity);
-        rb.velocity = workspace;
-        CurrentVelocity = workspace;
-    }
-
-    #endregion
-
-    #region Check Functions
-    public void CheckIfShouldFlip(int xInput)
-    {
-        if (xInput != 0 && xInput != facingDirection)
-        {
-            Flip();
-        }
-    }
-
-    public void CheckIfShouldFlipMousePos(Vector2 mousePos)
-    {
-        if (mousePos.x != 0 && Mathf.Round(mousePos.x) != facingDirection)
-        {
-            Flip();
-        }
-    }
-
-    public bool CheckIfGrounded()
-    {
-        Vector3 centerLowY = new Vector3(collider2d.bounds.center.x, (collider2d.bounds.center.y - (collider2d.bounds.size.y / 2)), 0);
-        Vector3 sizeLowY = new Vector3(collider2d.bounds.size.x - 0.2f, 0.3f, 0);
-
-        if (CurrentVelocity.y <= 3f)
-        {
-            return Physics2D.OverlapBox(centerLowY, sizeLowY, 0.0f, whatIsGround);
-        }
-        else return false;
-    }
-
-    public bool CheckIfTouchingWall()
-    {
-        return Physics2D.Raycast(collider2d.bounds.center, transform.right, (collider2d.bounds.size.x / 2 + 0.2f), whatIsGround);
-    }
-
-    #endregion
 
     #region Other Functions //Flip etc
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
     private void AnimationFinishedTrigger() => StateMachine.CurrentState.AnimationFinishedTrigger();
-    private void Flip()
-    {
-        facingDirection *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
-    }
 
     private void OnDrawGizmos()
     {
