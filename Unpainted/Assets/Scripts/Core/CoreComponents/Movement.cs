@@ -8,6 +8,8 @@ public class Movement : CoreComponent
     public int FacingDirection { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
 
+    [SerializeField] private float maxMovementX;
+
     private Vector2 workspace;
 
 
@@ -43,10 +45,10 @@ public class Movement : CoreComponent
     {
         workspace = new Vector2(forceX, forceY);
         rb.AddForce(workspace);
-   //     if (rb.velocity.x >= playerData.movementVelocity)
-   //     {
-   //         rb.velocity = new Vector2(playerData.movementVelocity, rb.velocity.y);
-   //     }
+        if (rb.velocity.x >= maxMovementX)
+        {
+            rb.velocity = new Vector2(maxMovementX, rb.velocity.y);
+        }
         CurrentVelocity = rb.velocity;
     }
 
@@ -79,6 +81,7 @@ public class Movement : CoreComponent
     {
         FacingDirection *= -1;
         rb.transform.Rotate(0.0f, 180.0f, 0.0f);
+        Debug.Log("flipped");
     }
 
     public void CheckIfShouldFlip(int xInput)

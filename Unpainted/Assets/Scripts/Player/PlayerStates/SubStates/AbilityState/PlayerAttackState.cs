@@ -6,16 +6,20 @@ public class PlayerAttackState : PlayerAbilityState
 {
     public bool dodgeAfter;
     private bool dodgeInput;
+    private float xInput;
     public float lastAttackTime;
 
-    public float attackDistance;
-    public float attackRadius;
+   
     private Vector2 attackDirection;
     private Vector2 attackDirectionInput;
+
+    private List<IDamagable> detecteDamagables = new List<IDamagable>();
     public PlayerAttackState(Player player, PlayerStateMachine playerStateMachine, PlayerData playerData, PlayerParticleHandler particleHandler, string m_AnimatorBoolName) : base(player, playerStateMachine, playerData, particleHandler, m_AnimatorBoolName)
     {
     }
 
+
+    #region Enter/Exit/Do checks
     public override void DoChecks()
     {
         base.DoChecks();
@@ -35,7 +39,6 @@ public class PlayerAttackState : PlayerAbilityState
         }
 
         player.Animator.SetFloat("mousePositionY", attackDirection.y);
-        Debug.Log(attackDirection.y);
 
 
         core.Movement.CheckIfShouldFlipMousePos(attackDirection);
@@ -51,22 +54,31 @@ public class PlayerAttackState : PlayerAbilityState
 
     }
 
+    #endregion
+
+    #region Uppdates
     public override void LogicUppdate()
     {
         base.LogicUppdate();
         dodgeInput = player.InputHandler.DodgeInput;
+        xInput = player.InputHandler.NormalizedInputX;
 
         if (dodgeAfter)
         {
             dodgeAfter = false;
             stateMachine.ChangeState(player.DodgeState);
-        } else if (dodgeInput)
+        }
+        else if (dodgeInput)
         {
             stateMachine.ChangeState(player.HoldDodgeState);
         }
         else if (isAnimationFinished)
         {
             isAbilityDone = true;
+        }
+        else
+        {
+            core.Movement.SetVelocityX(xInput * playerData.movementVelocity);
         }
     }
 
@@ -75,8 +87,43 @@ public class PlayerAttackState : PlayerAbilityState
         base.PhysicsUppdate();
     }
 
+    #endregion
+
+    #region AttackEvents
+
+    public override void AnimationActionTrigger()
+    {
+        base.AnimationActionTrigger();
+
+    }
+
+
+    public void AddToDetectedList(Collider2D collision)
+    {
+        IDamagable damagable = collision.GetComponent<IDamagable>();
+
+        if (damagable != null)
+        {
+            detecteDamagables.Add(damagable);
+        }
+    }
+
+    public void RemoveFromDetectedList(Collider2D collision)
+    {
+        IDamagable damagable = collision.GetComponent<IDamagable>();
+
+        if (damagable != null)
+        {
+            detecteDamagables.Remove(damagable);
+        }
+    }
+    #endregion
+
+    #region Cooldown Check
     public bool CheckIfCanAttack()
     {
         return Time.time >= lastAttackTime + playerData.attackCooldown;
     }
+
+    #endregion
 }
