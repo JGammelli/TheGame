@@ -41,20 +41,6 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    #region Check Variables
-
-
-
-
-    #endregion
-
-    #region Other Variables 
-
-    //Privates
-    private Vector2 workspace;
-
-    #endregion
-
 
     #region Unity Callback Functions
     private void Awake()
@@ -110,6 +96,8 @@ public class Player : MonoBehaviour
     #region Other Functions //Flip etc
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
+
+    private void AnimationActionTrigger() => StateMachine.CurrentState.AnimationActionTrigger(); //ifall det inte funkar, testa att göra en som bara pekar till AttackState.
 
     private void AnimationFinishedTrigger() => StateMachine.CurrentState.AnimationFinishedTrigger();
 
