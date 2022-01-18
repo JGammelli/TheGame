@@ -36,8 +36,13 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public Collider2D collider2d;
     public PlayerInputHandler InputHandler { get; private set; }
-    public Transform DodgeDirectionIndicator { get; private set; }
     public PlayerParticleHandler ParticleHandler { get; private set; }
+
+
+    //Indicators
+    public Transform Indicators { get; private set; }
+    public Transform DodgeDirectionIndicator { get; private set; }
+
 
     #endregion
 
@@ -72,7 +77,10 @@ public class Player : MonoBehaviour
         InputHandler = GetComponent<PlayerInputHandler>();
         rb = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
-        DodgeDirectionIndicator = transform.Find("DodgeDirectionIndicator");
+
+        //Indicators
+        Indicators = transform.Find("Indicators");
+        DodgeDirectionIndicator = Indicators.Find("DodgeDirectionIndicator");
 
         StateMachine.Initialize(IdleState);
     }
@@ -95,11 +103,6 @@ public class Player : MonoBehaviour
 
     #region Other Functions //Flip etc
 
-    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
-
-    private void AnimationActionTrigger() => StateMachine.CurrentState.AnimationActionTrigger(); //ifall det inte funkar, testa att göra en som bara pekar till AttackState.
-
-    private void AnimationFinishedTrigger() => StateMachine.CurrentState.AnimationFinishedTrigger();
 
     private void OnDrawGizmos()
     {
