@@ -37,10 +37,8 @@ public class PlayerAttackState : PlayerAbilityState
             attackDirection = attackDirectionInput;
             attackDirection.Normalize();
         }
-
         player.Animator.SetFloat("mousePositionY", attackDirection.y);
-
-
+        Debug.Log(attackDirection.y);
         core.Movement.CheckIfShouldFlipMousePos(attackDirection);
 
         lastAttackTime = Time.time;
@@ -63,12 +61,12 @@ public class PlayerAttackState : PlayerAbilityState
         dodgeInput = player.InputHandler.DodgeInput;
         xInput = player.InputHandler.NormalizedInputX;
 
-        if (dodgeAfter)
+        if (dodgeAfter && AnimationAllowChangeState)
         {
             dodgeAfter = false;
             stateMachine.ChangeState(player.DodgeState);
         }
-        else if (dodgeInput)
+        else if (dodgeInput && AnimationAllowChangeState)
         {
             stateMachine.ChangeState(player.HoldDodgeState);
         }
@@ -97,7 +95,10 @@ public class PlayerAttackState : PlayerAbilityState
 
     }
 
+    public void Attack()
+    {
 
+    }
     public void AddToDetectedList(Collider2D collision)
     {
         IDamagable damagable = collision.GetComponent<IDamagable>();
