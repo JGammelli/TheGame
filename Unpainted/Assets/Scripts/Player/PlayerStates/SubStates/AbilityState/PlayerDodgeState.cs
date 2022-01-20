@@ -35,10 +35,9 @@ public class PlayerDodgeState : PlayerAbilityState
 
 
 
-        if (core.Movement.CurrentVelocity.y > 0)
+        if (core.Movement.CurrentVelocity.y > 2)
         {
             core.Movement.SetVelocityY(core.Movement.CurrentVelocity.y * playerData.dodgeEndYMultiplier);
-            Debug.Log("dodge end multiplier");
         }
     }
 

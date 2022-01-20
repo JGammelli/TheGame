@@ -12,5 +12,8 @@ public class PlayerAnimationTriggers : MonoBehaviour
     }
     private void PlayerAnimationTrigger() => player.StateMachine.CurrentState.AnimationTrigger();
     private void PlayerAnimationAllowChangeState() => player.StateMachine.CurrentState.AnimationCanChangeStateTrigger();
-    private void PlayerAnimationFinishedTrigger() => player.StateMachine.CurrentState.AnimationFinishedTrigger();
+    private void PlayerAnimationFinishedTrigger()
+    {
+        player.StateMachine.CurrentState.AnimationFinishedTrigger();
+    }
 }

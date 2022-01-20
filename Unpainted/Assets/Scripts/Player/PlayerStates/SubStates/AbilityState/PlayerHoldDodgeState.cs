@@ -62,6 +62,7 @@ public class PlayerHoldDodgeState : PlayerAbilityState
                 player.DodgeDirectionIndicator.gameObject.SetActive(false);
                 player.AttackState.dodgeAfter = true;
                 stateMachine.ChangeState(player.AttackState);
+
             }
         }
     }
