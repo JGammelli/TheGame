@@ -13,7 +13,7 @@ public class PlayerAttackState : PlayerAbilityState
     private Vector2 attackDirection;
     private Vector2 attackDirectionInput;
 
-    private List<IDamagable> detecteDamagables = new List<IDamagable>();
+
     public PlayerAttackState(Player player, PlayerStateMachine playerStateMachine, PlayerData playerData, PlayerParticleHandler particleHandler, string m_AnimatorBoolName) : base(player, playerStateMachine, playerData, particleHandler, m_AnimatorBoolName)
     {
     }
@@ -38,11 +38,15 @@ public class PlayerAttackState : PlayerAbilityState
             attackDirection.Normalize();
         }
         player.Animator.SetFloat("mousePositionY", attackDirection.y);
-        Debug.Log(attackDirection.y);
         core.Movement.CheckIfShouldFlipMousePos(attackDirection);
 
         lastAttackTime = Time.time;
 
+        Debug.Log("Attacked entered");
+        if (dodgeAfter)
+        {
+            Debug.Log("dodgeafter = true");
+        }
 
     }
 
@@ -65,6 +69,7 @@ public class PlayerAttackState : PlayerAbilityState
         {
             dodgeAfter = false;
             stateMachine.ChangeState(player.DodgeState);
+            Debug.Log("dodgeAfter changed state");
         }
         else if (dodgeInput && AnimationAllowChangeState)
         {
@@ -73,6 +78,7 @@ public class PlayerAttackState : PlayerAbilityState
         else if (isAnimationFinished)
         {
             isAbilityDone = true;
+            Debug.Log("animationFinnishedCalled");
         }
         else
         {
@@ -87,7 +93,6 @@ public class PlayerAttackState : PlayerAbilityState
 
     #endregion
 
-    #region AttackEvents
 
     public override void AnimationActionTrigger()
     {
@@ -95,30 +100,7 @@ public class PlayerAttackState : PlayerAbilityState
 
     }
 
-    public void Attack()
-    {
 
-    }
-    public void AddToDetectedList(Collider2D collision)
-    {
-        IDamagable damagable = collision.GetComponent<IDamagable>();
-
-        if (damagable != null)
-        {
-            detecteDamagables.Add(damagable);
-        }
-    }
-
-    public void RemoveFromDetectedList(Collider2D collision)
-    {
-        IDamagable damagable = collision.GetComponent<IDamagable>();
-
-        if (damagable != null)
-        {
-            detecteDamagables.Remove(damagable);
-        }
-    }
-    #endregion
 
     #region Cooldown Check
     public bool CheckIfCanAttack()

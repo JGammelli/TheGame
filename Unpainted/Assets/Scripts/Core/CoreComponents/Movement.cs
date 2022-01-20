@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : CoreComponent
 {
-    public Rigidbody2D rb { get; private set; }
+    public Rigidbody2D Rb { get; private set; }
     public int FacingDirection { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
 
@@ -18,7 +18,7 @@ public class Movement : CoreComponent
     {
         base.Awake();
 
-        rb = GetComponentInParent<Rigidbody2D>();
+        Rb = GetComponentInParent<Rigidbody2D>();
 
         FacingDirection = 1;
     }
@@ -28,7 +28,7 @@ public class Movement : CoreComponent
     #region Uppdates
     public void LogicUppdate()
     {
-        CurrentVelocity = rb.velocity;
+        CurrentVelocity = Rb.velocity;
     }
 
     #endregion
@@ -37,32 +37,32 @@ public class Movement : CoreComponent
     public void SetVelocityX(float velocity)
     {
         workspace.Set(velocity, CurrentVelocity.y);
-        rb.velocity = workspace;
+        Rb.velocity = workspace;
         CurrentVelocity = workspace;
     }
 
     public void SetVelocitySmooth(float forceX, float forceY)
     {
         workspace = new Vector2(forceX, forceY);
-        rb.AddForce(workspace);
-        if (rb.velocity.x >= maxMovementX)
+        Rb.AddForce(workspace);
+        if (Rb.velocity.x >= maxMovementX)
         {
-            rb.velocity = new Vector2(maxMovementX, rb.velocity.y);
+            Rb.velocity = new Vector2(maxMovementX, Rb.velocity.y);
         }
-        CurrentVelocity = rb.velocity;
+        CurrentVelocity = Rb.velocity;
     }
 
     public void SetVelocityY(float velocity)
     {
         workspace.Set(CurrentVelocity.x, velocity);
-        rb.velocity = workspace;
+        Rb.velocity = workspace;
         CurrentVelocity = workspace;
     }
 
     public void SetVelocity(float velocity, Vector2 direction)
     {
         workspace = direction * velocity;
-        rb.velocity = workspace;
+        Rb.velocity = workspace;
         CurrentVelocity = workspace;
     }
 
@@ -70,7 +70,7 @@ public class Movement : CoreComponent
     {
         angle.Normalize();
         workspace.Set(angle.x * velocity * direction, angle.y * velocity);
-        rb.velocity = workspace;
+        Rb.velocity = workspace;
         CurrentVelocity = workspace;
     }
 
@@ -80,7 +80,7 @@ public class Movement : CoreComponent
     private void Flip()
     {
         FacingDirection *= -1;
-        rb.transform.Rotate(0.0f, 180.0f, 0.0f);
+        Rb.transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 
     public void CheckIfShouldFlip(int xInput)
