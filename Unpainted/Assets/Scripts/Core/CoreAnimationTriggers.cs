@@ -15,6 +15,5 @@ public class CoreAnimationTriggers : MonoBehaviour
 
     private void CoreAnimationAttackTrigger() => core.Combat.Attack();
 
- 
 
 }

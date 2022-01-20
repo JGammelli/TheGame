@@ -42,11 +42,6 @@ public class PlayerAttackState : PlayerAbilityState
 
         lastAttackTime = Time.time;
 
-        Debug.Log("Attacked entered");
-        if (dodgeAfter)
-        {
-            Debug.Log("dodgeafter = true");
-        }
 
     }
 
@@ -69,7 +64,6 @@ public class PlayerAttackState : PlayerAbilityState
         {
             dodgeAfter = false;
             stateMachine.ChangeState(player.DodgeState);
-            Debug.Log("dodgeAfter changed state");
         }
         else if (dodgeInput && AnimationAllowChangeState)
         {
@@ -78,7 +72,6 @@ public class PlayerAttackState : PlayerAbilityState
         else if (isAnimationFinished)
         {
             isAbilityDone = true;
-            Debug.Log("animationFinnishedCalled");
         }
         else
         {

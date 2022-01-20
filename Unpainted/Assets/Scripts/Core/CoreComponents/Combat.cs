@@ -16,8 +16,6 @@ public class Combat : CoreComponent
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("On trigger enter");
-
         AddToDetectedList(collision);
     }
 
@@ -27,6 +25,12 @@ public class Combat : CoreComponent
     }
     public void Attack()
     {
+        for (int i = 0; i < detectedDamagables.Count; i++)
+        {
+            detectedDamagables[i].Damage(1);
+
+            Debug.Log("attacked " + detectedDamagables[i]);
+        }
     }
 
     #endregion
@@ -35,11 +39,12 @@ public class Combat : CoreComponent
     {
 
 
-        IDamagable damagable = collision.GetComponent<IDamagable>();
+        IDamagable damagable = collision.GetComponent<IDamagable>();  
 
         if (damagable != null)
         {
             detectedDamagables.Add(damagable);
+
         }
     }
 
@@ -48,6 +53,8 @@ public class Combat : CoreComponent
 
 
         IDamagable damagable = collision.GetComponent<IDamagable>();
+
+
 
         if (damagable != null)
         {

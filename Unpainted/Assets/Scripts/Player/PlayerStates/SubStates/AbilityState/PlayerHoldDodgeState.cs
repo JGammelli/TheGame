@@ -24,7 +24,6 @@ public class PlayerHoldDodgeState : PlayerAbilityState
         player.InputHandler.UseDodgeInput();
         dodgeDirection = Vector2.right * -core.Movement.FacingDirection;
         m_StartTime = Time.unscaledTime;
-        Debug.Log("hold dodge enter");
     }
 
     public override void Exit()
@@ -63,7 +62,7 @@ public class PlayerHoldDodgeState : PlayerAbilityState
                 player.DodgeDirectionIndicator.gameObject.SetActive(false);
                 player.AttackState.dodgeAfter = true;
                 stateMachine.ChangeState(player.AttackState);
-                Debug.Log("hold dodge exit");
+
             }
         }
     }
