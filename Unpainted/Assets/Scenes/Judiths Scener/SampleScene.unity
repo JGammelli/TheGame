@@ -5956,8 +5956,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.8000002, y: 6.7781544}
-    newSize: {x: 3.8000002, y: 6.7781544}
+    oldSize: {x: 3.7199998, y: 6.692177}
+    newSize: {x: 3.7199998, y: 6.692177}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -6046,12 +6046,12 @@ SpriteRenderer:
   m_SortingLayerID: 122907377
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8334531998286510137, guid: dd683464a770d5e4a9d31b2454604e57, type: 3}
+  m_Sprite: {fileID: 5225334617248890203, guid: 08038b31132d03148a4f6122e6febaf3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.8000002, y: 6.7781544}
+  m_Size: {x: 3.7199998, y: 6.692177}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -6702,7 +6702,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7796209, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12263,6 +12263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
+    - target: {fileID: 1043180783565938406, guid: 88d69b066c84a594686ab7a5680e410d, type: 3}
+      propertyPath: CombatData
+      value: 
+      objectReference: {fileID: 11400000, guid: 588d87fd4653b0540afa983c4d7121cd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88d69b066c84a594686ab7a5680e410d, type: 3}
 --- !u!1001 &7971301822007877239

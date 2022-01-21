@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Combat : CoreComponent
 {
-    public Collider2D attackCollider;
-    private List<IDamagable> detectedDamagables = new List<IDamagable>();
+
+    public CombatData CombatData;
+
+    private List<IDamagable> DetectedDamagables = new List<IDamagable>();
+
+
+    #region AttackTrigger
 
     private void Start()
     {
-        attackCollider = GetComponent<Collider2D>();
+        if (CombatData == null)
+        {
+            Debug.LogError("Missing CombatData for: " + transform.root.name);
+        }
     }
-
-    #region AttackTrigger
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,11 +31,11 @@ public class Combat : CoreComponent
     }
     public void Attack()
     {
-        for (int i = 0; i < detectedDamagables.Count; i++)
+        for (int i = 0; i < DetectedDamagables.Count; i++)
         {
-            detectedDamagables[i].Damage(1);
+            DetectedDamagables[i].Damage(CombatData.damage);
 
-            Debug.Log("attacked " + detectedDamagables[i]);
+      //      Debug.Log("attacked " + DetectedDamagables[i]);
         }
     }
 
@@ -43,7 +49,7 @@ public class Combat : CoreComponent
 
         if (damagable != null)
         {
-            detectedDamagables.Add(damagable);
+            DetectedDamagables.Add(damagable);
 
         }
     }
@@ -58,7 +64,7 @@ public class Combat : CoreComponent
 
         if (damagable != null)
         {
-            detectedDamagables.Remove(damagable);
+            DetectedDamagables.Remove(damagable);
         }
     }
 }
