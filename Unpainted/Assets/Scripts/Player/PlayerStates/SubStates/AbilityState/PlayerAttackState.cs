@@ -29,6 +29,7 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.Enter();
         player.InputHandler.UseAttackInput();
+        isAnimationFinished = false;
         attackDirectionInput = player.InputHandler.AttackDirectionInput;
         attackDirection = Vector2.right * core.Movement.FacingDirection;
 
@@ -56,7 +57,7 @@ public class PlayerAttackState : PlayerAbilityState
     #region Uppdates
     public override void LogicUppdate()
     {
-        base.LogicUppdate();
+
         dodgeInput = player.InputHandler.DodgeInput;
         xInput = player.InputHandler.NormalizedInputX;
 
@@ -77,6 +78,8 @@ public class PlayerAttackState : PlayerAbilityState
         {
             core.Movement.SetVelocityX(xInput * playerData.movementVelocity);
         }
+
+        base.LogicUppdate();
     }
 
     public override void PhysicsUppdate()

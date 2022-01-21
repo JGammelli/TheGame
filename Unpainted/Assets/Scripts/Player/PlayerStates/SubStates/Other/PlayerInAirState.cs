@@ -77,7 +77,7 @@ public class PlayerInAirState : PlayerState
         {
             stateMachine.ChangeState(player.AttackState);
         }
-        else
+        else if (!isExitingState)
         {
             core.Movement.CheckIfShouldFlip(xInput);
             core.Movement.SetVelocityX(playerData.movementVelocity * xInput);

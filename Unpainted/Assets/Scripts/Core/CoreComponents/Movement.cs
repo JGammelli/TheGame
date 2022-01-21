@@ -81,6 +81,7 @@ public class Movement : CoreComponent
     {
         FacingDirection *= -1;
         Rb.transform.Rotate(0.0f, 180.0f, 0.0f);
+        Debug.Log("flipped");
     }
 
     public void CheckIfShouldFlip(int xInput)
