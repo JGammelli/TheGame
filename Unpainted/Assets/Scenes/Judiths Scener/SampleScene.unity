@@ -12360,6 +12360,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7971301821570061638, guid: 75a22a9c2014765429016fbcd2bf0c29, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971301821570061638, guid: 75a22a9c2014765429016fbcd2bf0c29, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971301821570061638, guid: 75a22a9c2014765429016fbcd2bf0c29, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971301821570061638, guid: 75a22a9c2014765429016fbcd2bf0c29, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971301821570061638, guid: 75a22a9c2014765429016fbcd2bf0c29, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 63e5938feb88f8c46a56378d99a3cb8c, type: 2}
     - target: {fileID: 7971301821570061657, guid: 75a22a9c2014765429016fbcd2bf0c29, type: 3}
       propertyPath: m_Name
       value: EvilYou

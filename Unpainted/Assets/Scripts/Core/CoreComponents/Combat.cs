@@ -6,7 +6,6 @@ public class Combat : CoreComponent
 {
 
     public CombatData CombatData;
-
     private List<IDamagable> DetectedDamagables = new List<IDamagable>();
 
 
@@ -29,13 +28,12 @@ public class Combat : CoreComponent
     {
         RemoveFromDetectedList(collision);
     }
+
     public void Attack()
     {
-        for (int i = 0; i < DetectedDamagables.Count; i++)
+        foreach (IDamagable damagable in DetectedDamagables)
         {
-            DetectedDamagables[i].Damage(CombatData.damage);
-
-            Debug.Log(DetectedDamagables.Count);
+            damagable.Damage(CombatData.damage);
         }
     }
 

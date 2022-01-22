@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 9b50e20527bca3f44b6c5b16cc337504
+guid: 0560786aae5b148409f069656bd98997
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8262196002342800344
-    second: Jump2 (1)_0
+      213: 1898237663318473301
+    second: JumpAttackSideUp_2
   - first:
-      213: -288082313933527435
-    second: Jump2 (1)_1
+      213: 8943262092138151493
+    second: JumpAttackSideUp_4
   - first:
-      213: -3102544975571888658
-    second: Jump2 (1)_2
+      213: 1082432265051981617
+    second: JumpAttackSideUp_1
   - first:
-      213: 7259794328636773106
-    second: Jump2 (1)_3
-  - first:
-      213: 102101911861028948
-    second: Jump2 (1)_4
+      213: -5778671430518055860
+    second: JumpAttackSideUp_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,106 +115,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump2 (1)_0
+      name: JumpAttackSideUp_2
       rect:
         serializedVersion: 2
-        x: 465
-        y: 14
-        width: 375
-        height: 676
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2399
+        y: 45
+        width: 1126
+        height: 1105
+      alignment: 9
+      pivot: {x: 0.13343282, y: 0.2969928}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8db8b483d7739a270800000000000000
-      internalID: 8262196002342800344
+      spriteID: 55a7d55f815e75a10800000000000000
+      internalID: 1898237663318473301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump2 (1)_1
+      name: JumpAttackSideUp_4
       rect:
         serializedVersion: 2
-        x: 2365
-        y: 33
+        x: 6243
+        y: 45
         width: 371
-        height: 657
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 752
+      alignment: 9
+      pivot: {x: 0.42744088, y: 0.41647565}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5766beb69a6800cf0800000000000000
-      internalID: -288082313933527435
+      spriteID: 54e7c174d79dc1c70800000000000000
+      internalID: 8943262092138151493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump2 (1)_2
+      name: JumpAttackSideUp_1
       rect:
         serializedVersion: 2
-        x: 4289
-        y: 28
-        width: 385
-        height: 667
+        x: 447
+        y: 30
+        width: 383
+        height: 662
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee55d5f58cb81f4d0800000000000000
-      internalID: -3102544975571888658
+      spriteID: 13748dbf862950f00800000000000000
+      internalID: 1082432265051981617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump2 (1)_3
+      name: JumpAttackSideUp_3
       rect:
         serializedVersion: 2
-        x: 6213
-        y: 42
-        width: 384
-        height: 648
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4321
+        y: 45
+        width: 794
+        height: 701
+      alignment: 9
+      pivot: {x: 0.21182674, y: 0.46159965}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f25ac45a78ffb460800000000000000
-      internalID: 7259794328636773106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump2 (1)_4
-      rect:
-        serializedVersion: 2
-        x: 8146
-        y: 75
-        width: 375
-        height: 606
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4586d5bd52dba6100800000000000000
-      internalID: 102101911861028948
+      spriteID: c4cd54e53f80ecfa0800000000000000
+      internalID: -5778671430518055860
       vertices: []
       indices: 
       edges: []

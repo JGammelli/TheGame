@@ -1,22 +1,31 @@
 fileFormatVersion: 2
-guid: 9b50e20527bca3f44b6c5b16cc337504
+guid: eb999938aa00e294482cb720e938a94f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8262196002342800344
-    second: Jump2 (1)_0
+      213: 3415310143955279203
+    second: GroundedAttackSE_0
   - first:
-      213: -288082313933527435
-    second: Jump2 (1)_1
+      213: 6685441259217819567
+    second: GroundedAttackSE_1
   - first:
-      213: -3102544975571888658
-    second: Jump2 (1)_2
+      213: 1495516738719342733
+    second: GroundedAttackSE_2
   - first:
-      213: 7259794328636773106
-    second: Jump2 (1)_3
+      213: -4130696047082049236
+    second: GroundedAttackSE_3
   - first:
-      213: 102101911861028948
-    second: Jump2 (1)_4
+      213: 6886755837893843322
+    second: GroundedAttackSE_4
+  - first:
+      213: -7014846047080514166
+    second: GroundedAttackSE_5
+  - first:
+      213: -107777249377550245
+    second: GroundedAttackSE_6
+  - first:
+      213: 5760495006752073316
+    second: GroundedAttackSE_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump2 (1)_0
+      name: GroundedAttackSE_0
       rect:
         serializedVersion: 2
-        x: 465
-        y: 14
-        width: 375
-        height: 676
+        x: 195
+        y: 664
+        width: 423
+        height: 624
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,62 +141,125 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8db8b483d7739a270800000000000000
-      internalID: 8262196002342800344
+      spriteID: 36d1e381b7e956f20800000000000000
+      internalID: 3415310143955279203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump2 (1)_1
+      name: GroundedAttackSE_1
       rect:
         serializedVersion: 2
-        x: 2365
-        y: 33
-        width: 371
+        x: 1886
+        y: 429
+        width: 1242
+        height: 846
+      alignment: 9
+      pivot: {x: 0.15997069, y: 0.631144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa71b6e776577cc50800000000000000
+      internalID: 6685441259217819567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundedAttackSE_2
+      rect:
+        serializedVersion: 2
+        x: 3564
+        y: 547
+        width: 1021
+        height: 741
+      alignment: 9
+      pivot: {x: 0.1669929, y: 0.57727855}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80640fdc8421c410800000000000000
+      internalID: 1495516738719342733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundedAttackSE_3
+      rect:
+        serializedVersion: 2
+        x: 5249
+        y: 625
+        width: 793
+        height: 670
+      alignment: 9
+      pivot: {x: 0.19310385, y: 0.5106836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21709e94d1dca6c0800000000000000
+      internalID: -4130696047082049236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundedAttackSE_4
+      rect:
+        serializedVersion: 2
+        x: 6920
+        y: 657
+        width: 501
         height: 657
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.30712306, y: 0.5108951}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5766beb69a6800cf0800000000000000
-      internalID: -288082313933527435
+      spriteID: a79928c62fba29f50800000000000000
+      internalID: 6886755837893843322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump2 (1)_2
+      name: GroundedAttackSE_5
       rect:
         serializedVersion: 2
-        x: 4289
-        y: 28
-        width: 385
-        height: 667
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8592
+        y: 661
+        width: 318
+        height: 787
+      alignment: 9
+      pivot: {x: 0.46624103, y: 0.44542906}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee55d5f58cb81f4d0800000000000000
-      internalID: -3102544975571888658
+      spriteID: a8d76b9bfa246ae90800000000000000
+      internalID: -7014846047080514166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump2 (1)_3
+      name: GroundedAttackSE_6
       rect:
         serializedVersion: 2
-        x: 6213
-        y: 42
-        width: 384
-        height: 648
+        x: 10237
+        y: 657
+        width: 338
+        height: 696
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +267,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f25ac45a78ffb460800000000000000
-      internalID: 7259794328636773106
+      spriteID: b508bf7a929118ef0800000000000000
+      internalID: -107777249377550245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump2 (1)_4
+      name: GroundedAttackSE_7
       rect:
         serializedVersion: 2
-        x: 8146
-        y: 75
-        width: 375
-        height: 606
+        x: 11857
+        y: 657
+        width: 383
+        height: 677
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +288,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4586d5bd52dba6100800000000000000
-      internalID: 102101911861028948
+      spriteID: 4666edf20b361ff40800000000000000
+      internalID: 5760495006752073316
       vertices: []
       indices: 
       edges: []
