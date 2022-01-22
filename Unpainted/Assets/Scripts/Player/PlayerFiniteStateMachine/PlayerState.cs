@@ -55,6 +55,10 @@ public class PlayerState
 
     public virtual void DoChecks()
     {
+        if (core.CollisionSenses.CheckIfGrounded())
+        {
+            player.Animator.SetFloat("isGrounded", 1);
+        } else player.Animator.SetFloat("isGrounded", -1);
 
     }
 

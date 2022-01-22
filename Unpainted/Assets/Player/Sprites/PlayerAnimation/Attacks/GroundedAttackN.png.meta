@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 0c037e27c9fbcae459bf5e8266e29697
+guid: 6e077c3d9261e5f4a85e3af74f58004c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2251879231025388370
-    second: jump 1_0
+      213: 4132460224570197689
+    second: GroundedAttackN_9
   - first:
-      213: 7433205329265719020
-    second: jump 1_1
+      213: 1444455570375137096
+    second: GroundedAttackN_10
   - first:
-      213: -7794233420385945655
-    second: jump 1_2
+      213: -8447695776539303191
+    second: GroundedAttackN_11
   - first:
-      213: -1767209262313429290
-    second: jump 1_3
+      213: -462864663770154619
+    second: GroundedAttackN_12
   - first:
-      213: 9221850289636628292
-    second: jump 1_4
+      213: -6169318562000825552
+    second: GroundedAttackN_15
   - first:
-      213: -1486431447456399615
-    second: jump 1_5
+      213: -8332943340292229744
+    second: GroundedAttackN_16
   - first:
-      213: -3859728383469801900
-    second: jump 1_6
+      213: -5470510645629317489
+    second: GroundedAttackN_17
   - first:
-      213: 8280876889976023332
-    second: jump 1_7
-  - first:
-      213: 8894731165792104842
-    second: jump 1_8
+      213: -323995432614213081
+    second: GroundedAttackN_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -59,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -95,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,7 +116,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jump 1_0
+      name: GroundedAttackN_9
       rect:
         serializedVersion: 2
-        x: 165
-        y: 18
-        width: 438
-        height: 691
+        x: 450
+        y: 15
+        width: 421
+        height: 630
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,125 +141,125 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25b195aca38404f10800000000000000
-      internalID: 2251879231025388370
+      spriteID: 9b600f5fda2795930800000000000000
+      internalID: 4132460224570197689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump 1_1
+      name: GroundedAttackN_10
       rect:
         serializedVersion: 2
-        x: 1833
-        y: 18
-        width: 461
-        height: 691
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2255
+        y: 15
+        width: 718
+        height: 1394
+      alignment: 9
+      pivot: {x: 0.47, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce67c693ddc082760800000000000000
-      internalID: 7433205329265719020
+      spriteID: 8475b0e20bcbb0410800000000000000
+      internalID: 1444455570375137096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump 1_2
+      name: GroundedAttackN_11
       rect:
         serializedVersion: 2
-        x: 3530
-        y: 18
-        width: 439
-        height: 684
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4325
+        y: 15
+        width: 623
+        height: 1026
+      alignment: 9
+      pivot: {x: 0.3, y: 0.31}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c7fa61fff155d390800000000000000
-      internalID: -7794233420385945655
+      spriteID: 9e2aec4f271c3ca80800000000000000
+      internalID: -8447695776539303191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump 1_3
+      name: GroundedAttackN_12
       rect:
         serializedVersion: 2
-        x: 5199
-        y: 18
-        width: 439
-        height: 683
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6269
+        y: 15
+        width: 654
+        height: 803
+      alignment: 9
+      pivot: {x: 0.27, y: 0.39}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d6270cf98c9977e0800000000000000
-      internalID: -1767209262313429290
+      spriteID: 58936e86a039399f0800000000000000
+      internalID: -462864663770154619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump 1_4
+      name: GroundedAttackN_15
       rect:
         serializedVersion: 2
-        x: 6860
-        y: 18
-        width: 445
-        height: 676
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8206
+        y: 15
+        width: 496
+        height: 630
+      alignment: 9
+      pivot: {x: 0.33, y: 0.49}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 447df9d9af79aff70800000000000000
-      internalID: 9221850289636628292
+      spriteID: 03397bd447d226aa0800000000000000
+      internalID: -6169318562000825552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump 1_5
+      name: GroundedAttackN_16
       rect:
         serializedVersion: 2
-        x: 8528
-        y: 18
-        width: 439
-        height: 676
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 10136
+        y: 15
+        width: 315
+        height: 787
+      alignment: 9
+      pivot: {x: 0.48, y: 0.44}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10f346759722f5be0800000000000000
-      internalID: -1486431447456399615
+      spriteID: 095bc6c8e207b5c80800000000000000
+      internalID: -8332943340292229744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump 1_6
+      name: GroundedAttackN_17
       rect:
         serializedVersion: 2
-        x: 10182
-        y: 11
-        width: 417
-        height: 683
+        x: 12035
+        y: 22
+        width: 338
+        height: 697
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,20 +267,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45e2ac52c7d7f6ac0800000000000000
-      internalID: -3859728383469801900
+      spriteID: f8e85434d87d414b0800000000000000
+      internalID: -5470510645629317489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump 1_7
+      name: GroundedAttackN_18
       rect:
         serializedVersion: 2
-        x: 11872
-        y: 12
-        width: 402
-        height: 638
+        x: 13912
+        y: 15
+        width: 383
+        height: 675
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,29 +288,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42923cf48a59be270800000000000000
-      internalID: 8280876889976023332
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump 1_8
-      rect:
-        serializedVersion: 2
-        x: 13540
-        y: 12
-        width: 402
-        height: 653
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8172a57ede607b70800000000000000
-      internalID: 8894731165792104842
+      spriteID: 72a4e22eedfe08bf0800000000000000
+      internalID: -323995432614213081
       vertices: []
       indices: 
       edges: []
