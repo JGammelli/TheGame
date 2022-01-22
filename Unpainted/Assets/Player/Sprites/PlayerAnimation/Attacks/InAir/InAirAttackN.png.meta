@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 9b50e20527bca3f44b6c5b16cc337504
+guid: 87f6ab907a7e13549b536ab66e33d71f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8262196002342800344
-    second: Jump2 (1)_0
+      213: 6277645200874604223
+    second: InAirAttackN_4
   - first:
-      213: -288082313933527435
-    second: Jump2 (1)_1
+      213: 7418455274173736395
+    second: InAirAttackN_5
   - first:
-      213: -3102544975571888658
-    second: Jump2 (1)_2
+      213: 4759769952608118274
+    second: InAirAttackN_6
   - first:
-      213: 7259794328636773106
-    second: Jump2 (1)_3
-  - first:
-      213: 102101911861028948
-    second: Jump2 (1)_4
+      213: 2310876744772569573
+    second: InAirAttackN_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump2 (1)_0
+      name: InAirAttackN_4
       rect:
         serializedVersion: 2
-        x: 465
-        y: 14
-        width: 375
-        height: 676
+        x: 447
+        y: 30
+        width: 383
+        height: 662
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,92 +129,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8db8b483d7739a270800000000000000
-      internalID: 8262196002342800344
+      spriteID: fb60110cc0dae1750800000000000000
+      internalID: 6277645200874604223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump2 (1)_1
+      name: InAirAttackN_5
       rect:
         serializedVersion: 2
-        x: 2365
-        y: 33
+        x: 2251
+        y: 45
+        width: 722
+        height: 1375
+      alignment: 9
+      pivot: {x: 0.46271613, y: 0.2357067}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc5af3764c5a3f660800000000000000
+      internalID: 7418455274173736395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InAirAttackN_6
+      rect:
+        serializedVersion: 2
+        x: 4321
+        y: 45
+        width: 597
+        height: 1098
+      alignment: 9
+      pivot: {x: 0.31212458, y: 0.28752646}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206e8c5bd891e0240800000000000000
+      internalID: 4759769952608118274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InAirAttackN_7
+      rect:
+        serializedVersion: 2
+        x: 6243
+        y: 45
         width: 371
-        height: 657
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 752
+      alignment: 9
+      pivot: {x: 0.48790485, y: 0.44630587}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5766beb69a6800cf0800000000000000
-      internalID: -288082313933527435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump2 (1)_2
-      rect:
-        serializedVersion: 2
-        x: 4289
-        y: 28
-        width: 385
-        height: 667
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee55d5f58cb81f4d0800000000000000
-      internalID: -3102544975571888658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump2 (1)_3
-      rect:
-        serializedVersion: 2
-        x: 6213
-        y: 42
-        width: 384
-        height: 648
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f25ac45a78ffb460800000000000000
-      internalID: 7259794328636773106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump2 (1)_4
-      rect:
-        serializedVersion: 2
-        x: 8146
-        y: 75
-        width: 375
-        height: 606
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4586d5bd52dba6100800000000000000
-      internalID: 102101911861028948
+      spriteID: 5e941e3e722e11020800000000000000
+      internalID: 2310876744772569573
       vertices: []
       indices: 
       edges: []

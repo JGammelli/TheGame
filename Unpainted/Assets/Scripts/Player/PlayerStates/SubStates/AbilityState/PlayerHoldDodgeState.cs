@@ -55,6 +55,7 @@ public class PlayerHoldDodgeState : PlayerAbilityState
             core.Movement.CheckIfShouldFlipMousePos(-dodgeDirection);
             float angle = Vector2.SignedAngle(Vector2.right, dodgeDirection);
             player.DodgeDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, angle - 180);
+            player.Animator.SetFloat("mousePositionY", dodgeDirection.y);
 
             if (dodgeInputStop || Time.unscaledTime >= m_StartTime + playerData.dodgeMaxHoldTime)
             {
