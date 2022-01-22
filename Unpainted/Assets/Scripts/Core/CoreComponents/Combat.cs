@@ -35,7 +35,7 @@ public class Combat : CoreComponent
         {
             DetectedDamagables[i].Damage(CombatData.damage);
 
-      //      Debug.Log("attacked " + DetectedDamagables[i]);
+            Debug.Log(DetectedDamagables.Count);
         }
     }
 

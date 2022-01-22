@@ -18,7 +18,6 @@ public class PlayerWallSlideState : PlayerTouchingWallState
         {
             player.InputHandler.UseJumpInput();
             stateMachine.ChangeState(player.DoubleJumpState);
-            Debug.Log("Changed to DoubleJump State from player wall slide state");
         }
     }
 
