@@ -34,6 +34,7 @@ public class PlayerGroundedState : PlayerState
     public override void Exit()
     {
         base.Exit();
+
     }
 
     public override void LogicUppdate()
