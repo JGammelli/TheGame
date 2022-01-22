@@ -13,7 +13,11 @@ public class CoreAnimationTriggers : MonoBehaviour
 
 
 
-    private void CoreAnimationAttackTrigger() => core.Combat.Attack();
+    private void CoreAnimationAttackTrigger()
+    {
+        core.Combat.Attack();
+        Debug.Log("attacked");
+    } 
 
 
 }

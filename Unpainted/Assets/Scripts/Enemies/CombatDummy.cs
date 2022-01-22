@@ -6,7 +6,7 @@ public class CombatDummy : MonoBehaviour, IDamagable
 {
     public void Damage(float amount)
     {
-        
+        Debug.Log(amount + "damage taken");
     }
 
     private void Awake()
